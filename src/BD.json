@@ -1,13 +1,5 @@
-<script>
-import db from '../firebase/init';
-import { collection,getDocs } from 'firebase/firestore/lite';
-
-export default {
-	components: {
-},
-data() {
-    return {
-        mandoubiyet:[
+{
+    "mandoubiya ":[
         {
             "nom":"المندوب العام لحماية الطفولة",
             "adresse":"18 نهج النمسا - 1002 - تونس البلفيدير",
@@ -233,27 +225,4 @@ data() {
                     "email":"dpe-kebili@delegue-enfancenat.tn"
                 }
     ]
-    }
-},
-methods: {
-    async add(){
-console.log(this.mandoubiyet);
-const res = await db.collection('cities').add({
-  name: 'Tokyo',
-  country: 'Japan'
-});
-
-console.log('Added document with ID: ', res.id);
-
-    }
-},
-};
-</script>
-<template>
-    <button @click="add()" >firebase</button>
-
-</template>
-
-<style>
-
-</style>
+}
