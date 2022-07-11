@@ -1,8 +1,8 @@
 <template>
      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-<div class="carousel-item" v-for="(banner,idx) in banners" v-bind:key="idx" :class="{ active: idx==0 }">
-      <img :src="`/assets/carousel/${banner}`" alt="" class="img-fluid">
+<div class="carousel-item" v-for="(banner,idx) in resultat" v-bind:key="idx" :class="{ active: idx==0 }">
+      <img :src="banner.link" alt="" class="img-fluid">
 </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -17,13 +17,24 @@
 </template>
 
 <script>
-export default {
-data() {
-  return {
-    banners:['03.jpg','01.jpg','02.jpg','04.jpg','05.jpg']
-  }
-},
-}
+import db from "../firebase/init";
+import firebase from "firebase/app";
+export default{
+    async beforeMount()  {
+       const res = await db.collection("carousel").where("visible", "==", true).get();
+        if (res.empty) {
+            console.log("No matching documents.");
+            return;
+        }
+        res.forEach(doc => {
+            return this.resultat.push(doc.data());
+        });
+    },
+    data() {
+        return {
+            resultat: []
+        };
+    },}
 </script>
 
 <style>
