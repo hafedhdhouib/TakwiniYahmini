@@ -1,9 +1,9 @@
 <template>
   <div class="container my-5">
-    <div class="row">
+    <div class="row p-5">
         <div class="col-lg-6 col-sm-6">
         <div class="portfolio-item">
-               <img src="../assets/IMG_0289-3.jpg" class="img-thumbnail" alt="">
+               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
                <div class="portfolio-overlay">
                   <div>
                      <h6>Project title</h6>
@@ -12,39 +12,7 @@
          </div>
 
         </div>
-                <div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/IMG_0289-3.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6>Project title</h6>
-                  </div>
-               </div>
-         </div>
 
-        </div>
-                <div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/IMG_0289-3.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6>Project title</h6>
-                  </div>
-               </div>
-         </div>
-
-        </div>
-                <div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/IMG_0289-3.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6>Project title</h6>
-                  </div>
-               </div>
-         </div>
-
-        </div>
     </div>
   </div>
 </template>
