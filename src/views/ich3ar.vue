@@ -18,7 +18,7 @@
 </div>
 </div>
     <p class="m-3 align-centre">يمكنكم ملء هذه الاستمارة او الاشعار عبر تطبيقنا على app store</p>
-    <form @submit.prevent="test" class="form p-5 my-3">
+    <form @submit.prevent="add" class="form p-5 my-3">
       <div class="form-check col">
         <label for="exampleFormControlInput1" class="form-label fs-5">الإسم و اللقب</label>
         <input v-model="nom" type="text" class="form-control" id="exampleFormControlInput1" placeholder="الإسم و اللقب">
@@ -34,7 +34,7 @@
           <option value="اخر">اخر ...</option>
         </select>
         <div class="my-3">
-  <input type="tel" v-if="etat == 'اخر'" class="form-control" id="exampleFormControlInput1" required  placeholder="">
+  <input type="tel" v-if="etat == 'اخر'" v-model="autre" class="form-control" id="exampleFormControlInput1" required  placeholder="">
 </div>
 
       </div>
@@ -44,7 +44,7 @@
           <option v-for="Sujet_menaces in Sujet_menaces" v-bind:key="Sujet_menaces" :value="Sujet_menaces">{{Sujet_menaces}} </option>
         </select>
                 <div class="my-3">
-  <input type="tel" v-if="Sujet_menace == 'اخر'" class="form-control" id="exampleFormControlInput1" required  placeholder="">
+  <input type="tel" v-if="Sujet_menace == 'اخر'" v-model="menace" class="form-control" id="exampleFormControlInput1" required  placeholder="">
 </div>
 
       </div>
@@ -71,7 +71,6 @@
               <button class="btn btn-warning" type="submit">الإرسال</button>
 
     </form>
-<button @click="add()">region</button>
   </main>
 </template>
 
@@ -330,14 +329,16 @@ data() {
 ,'سوء معاملة الطفل'
 ,'استغلال الطفل جنسيا'
 ,'استغلال الطفل في الاجرام المنظم'
-,'تعريض الصفل للتسول و الاستغلاله تقتصاديا'
+,'تعريض الطفل للتسول و الاستغلاله تقتصاديا'
 ,'عجز الابوين عن رعاية الطفل'
 ,'محاولة انتحار'
 ,'ولادة خارج اطار الزواج'
 ,'صعوبات نفسية'
 ,'اخر'],
+autre:null,
 etat:null,
 Sujet_menace:null,
+menace:null,
 num_tel:'',
 nom:'',
 adresse:'',
@@ -348,23 +349,32 @@ info:''
   }
 },
 methods: {
-    test(){
-        console.log('kamelna');
-    },
-  add(){      
-console.log(this.info);
-    console.log(this.Sujet_menace);
+  add(){
+   let menace;
+   let etat; 
+    if (this.Sujet_menace=="اخر"){
+    menace = this.menace
+    }
+    else{
+ menace = this.Sujet_menace 
+    }
+    if (this.etat=="اخر"){
+    etat = this.autre
+    }
+    else{
+ etat = this.etat 
+    }
     this.mandoubiya.forEach(mandoubiya=>{
       if(mandoubiya.region === this.region){
        emailjs.send("service_mwox9uq","template_xhikczb",{
 region:this.region,
-etat: this.etat,
-Sujet_menace: this.Sujet_menace,
+etat: etat,
+Sujet_menace: menace,
 num_tel: this.num_tel,
 nom: this.nom,
 adresse: this.adresse,
 info: this.info,
-reply_to: "hafedh20@gmail.com",
+reply_to: "chakrounhoussem34@gmail.com",
 },'tF8qINzXr-AhDi7we').then(()=>{
 var toastLiveExample = document.getElementById('liveToast')
     var toast = new bootstrap.Toast(toastLiveExample)
