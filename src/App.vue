@@ -18,11 +18,27 @@ async function show(){
 
 <template>
 <Navbar/>
-  <RouterView />
+
+<router-view/>
+  <!--<router-view v-slot="{ Component }">
+    <transition name="slide" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+  </router-view>
+-->
 <FooterCOM></FooterCOM>
 </template>
 
 <style>
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 1s, transform 1s;
+}
 
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30%);
+}
 </style>
 

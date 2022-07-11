@@ -1,9 +1,20 @@
 <template>
-  <main class="container m-5">
-    <form class="form p-5">
-<div class="text-center fs-1 fw-normal rounded-pill"><p class="m-3 ">
-  تسجيل الدخول للتوجيه المهني
-</p> </div>
+  <div class="container my-5">
+<div class="position-fixed top-5 end-5 p-3" style="z-index: 11">
+<div id='liveToast' class="toast align-items-center text-primary  border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="d-flex">
+    <div class="toast-body">
+      تم التسجيل بنجاح.
+    </div>
+    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+</div>
+</div>
+
+    <form class="container p-5" v-on:submit.prevent="add">
+<div class="text-center fs-1  rounded-pill">
+  <p class="m-3 ">تسجيل الدخول للتوجيه المهني</p>
+  </div>
 
     <div class="row">
       <div class="col-5">
@@ -42,13 +53,13 @@
 <select class="form-select" aria-label="Default select example" v-model="niveau_scolaire">
   <option v-for="niveau in niveaux" :key="niveau" :value="niveau.مستوى">{{niveau.الأسم}}</option>
 </select>
-<select class="form-select" aria-label="Default select example" v-model="annee_scolaire">
-  <option v-if="niveau_scolaire" v-for="nivea in niveaux[niveau_scolaire].الأقسام" :key="nivea" :value="nivea.الأقسام">{{nivea}}</option>
+
+</div>
+<select v-if="niveau_scolaire" class="form-select" aria-label="Default select example" v-model="annee_scolaire">
+  <option  v-for="nivea in niveaux[niveau_scolaire].الأقسام" :key="nivea" :value="nivea">{{nivea}}</option>
 </select>
 
 
-</div>
-        
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="fs-3 form-label">سنة الانقطاع عن الدراسة
           </label>
@@ -67,8 +78,8 @@
     </div>
     </div>
     </form>
-    <button @click.prevent="add()">test</button>
-  </main>
+    
+  </div>
 </template>
 
 <script>
@@ -94,18 +105,27 @@ export default {
   },
   methods: {
     async add(){
-const data_base= await db.collection('test').doc()
-await data_base.set({
-  nom:'hafedh'
-})
-    }
-  },
-};
-</script>
+    const dataBase = await db.collection("demande").doc();
+    await dataBase.set({
+    niveau_scolaire:this.niveau_scolaire,
+annee_scolaire:this.annee_scolaire,
+age:this.age,
+annee:this.annee,
+email:this.email,
+adresse:this.adresse,
+num_tel:this.num_tel,
+nom:this.nom
+    }).then(()=>{
+var toastLiveExample = document.getElementById('liveToast')
+    var toast = new bootstrap.Toast(toastLiveExample)
+    toast.show()
+    })
+}
+  }}</script>
 
 <style scoped>
 
-.form{
+form{
   
   background-color: #25389C;
 }
@@ -116,6 +136,17 @@ await data_base.set({
   color: #25389C;
   background-color: #FCCE02;
 ;
+}
+.form-control{
+    background-color:  #FFFFFF45;
+    border-radius: 12px;
+    border-color:#FFFFFF45 ;
+}
+.form-select{
+    background-color:  #FFFFFF45;
+    border-radius: 12px;
+    border-color:#FFFFFF45 ;
+
 }
 .round{
   border-radius:90 ;

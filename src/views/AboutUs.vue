@@ -1,13 +1,12 @@
 <template>
   <main class="container m-5">
-<p class=" fs-1 fw-normal">
+<p class=" fs-2 fw-normal">
     جمعية براءة لحماية الطفولة المهددة هي جمعية حقوقية تحصلت على التأشيرة القانونية في 26 فيفري 2019 تحت المعرف X00364APSF1 
 تعنى جمعية براءة بمجال حماية الطفولة المهددة و الدفاع عن حقوق الطفل عبر التعاون مع مختلف المتداخلين في القطاع من وزارات و منظمات حكومية و غير حكومية من أجل بلوغ طفولة آمنة و سليمة و متوازنة . 
 
 و  في هذا الإطار يتنزل مشروع " تكويني يحميني " بهدف المساهمة في الحد من ظاهرة الاستغلال الاقتصادي للأطفال  و الانقطاع المدرسي و تثمين دور مؤسسات التكوين المهني. 
 
 </p>     
-<BarPartenaire></BarPartenaire>
 </main>
 
 </template>
@@ -15,7 +14,6 @@
 <script setup>
 import Carousel from "../components/Carousel.vue";
 import Actualite from "../components/actualite.vue";
-import BarPartenaire from "../components/barPartenaire.vue";
 components: {
   Carousel;
 }

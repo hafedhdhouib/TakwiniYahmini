@@ -14,13 +14,13 @@
             <router-link class="nav-link" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link ">مراكز التكوين المهني </a>
+            <router-link  class="nav-link" :class="$route.path == '/list' ? 'active' : ' ' " to="/list">مراكز التكوين المهني </router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link " to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link ">الإشعار </a>
+            <router-link class="nav-link " :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
           </li>
         </ul>
         <form class="d-flex">
