@@ -1,33 +1,34 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-<img src="../assets/logo/Logo-Takwini-Yahmni.png" alt="" width="30" height="24"/>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="تبديل التنقل">
+        <div class="navbar-brand ">
+                <img class="logo" src="../assets/logo/Logo-Takwini-Yahmni.png" alt="Logo" width="100" height="100">
+        </div>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="تبديل التنقل">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+        <ul class="navbar-nav mb-2 mb-md-0">
           <li class="nav-item">
-            <router-link class="nav-link" :class="$route.path == '/' ? 'active' : ' ' " aria-current="page" to="/">الرئيسية</router-link>
+            <router-link class="nav-link fs-5" :class="$route.path == '/' ? 'active' : ' ' " aria-current="page" to="/">الرئيسية</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
+            <router-link class="nav-link fs-5" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
           </li>
           <li class="nav-item">
-            <router-link  class="nav-link" :class="$route.path == '/list' ? 'active' : ' ' " to="/list">مراكز التكوين المهني </router-link>
+            <router-link  class="nav-link fs-5" :class="$route.path == '/list' ? 'active' : ' ' " to="/list">مراكز التكوين المهني </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link " to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
+            <router-link class="nav-link  fs-5" to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link " :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
+            <router-link class="nav-link  fs-5" :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
+          </li>
+                    <li class="nav-item">
+            <router-link class="nav-link  fs-5" :class="$route.path == '/video' ? 'active' : ' ' " to='/video' >فيديو </router-link>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="بحث" aria-label="بحث">
-          <button class="btn btn-outline-success" type="submit">بحث</button>
-        </form>
-      </div>
+              </div>
     </div>
   </nav>
 
@@ -37,10 +38,34 @@
 
 </script>
 
-<style>
+<style  scoped>
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+.navbar-brand {
+  flex: 0 1 auto;
+  display: block;
+  width: 100px;
+  height: 100px; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateX(-50%);
+  text-align: center;
+
+}
+.navbar-nav{
+  margin-right: 120px;
+}
+
+.navbar-brand img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 
 body {
   padding-top: 3rem;
