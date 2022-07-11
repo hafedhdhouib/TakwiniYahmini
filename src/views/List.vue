@@ -12,7 +12,17 @@
          </div>
 
         </div>
+<div class="col-lg-6 col-sm-6">
+        <div class="portfolio-item">
+               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
+               <div class="portfolio-overlay">
+                  <div>
+                     <h6>Project title</h6>
+                  </div>
+               </div>
+         </div>
 
+        </div>
     </div>
   </div>
 </template>
