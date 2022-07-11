@@ -2,7 +2,7 @@
      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 <div class="carousel-item" v-for="(banner,idx) in banners" v-bind:key="idx" :class="{ active: idx==0 }">
-      <img :src="`../assets/carousel/${banner}`" alt="" class="img-fluid">
+      <img :src="`/assets/carousel/${banner}`" alt="" class="img-fluid">
 </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
