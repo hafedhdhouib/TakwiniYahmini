@@ -6,8 +6,7 @@ import Actualite from "../components/actualite.vue";
 import FooterCOM from "../components/footerCOM.vue";
 export default{
     async beforeMount()  {
-      
-        const res = await db.collection("actualites").where("visible", "==", true).get();
+       const res = await db.collection("actualites").where("visible", "==", true).get();
         if (res.empty) {
             console.log("No matching documents.");
             return;
