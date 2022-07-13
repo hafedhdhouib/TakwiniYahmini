@@ -49,6 +49,23 @@ const router = createRouter({
       path: '/video',
       name: 'video',
       component: () => import('../views/video.vue')
+    }, {
+      path: '/admin',
+      name: 'admin',
+      component: () => import('../views/admin/index.vue')
+    },{
+      path: '/admin/add-actualite/',
+      name: 'add actualite',
+      component: () => import('../views/admin/add-actualite.vue')
+    },{
+      path: '/admin/edit-actualite/:id',
+      name: 'edit actualite',
+      component: () => import('../views/admin/edit-actualite.vue')
+    },
+    {
+      path: '/admin/add-guide',
+      name: 'add guide',
+      component: () => import('../views/admin/add-guide.vue')
     },
   ]
 })

@@ -26,7 +26,7 @@ export default{
 
 <template>
 <br><br><br>
-  <div class="container">
+  <div class="container ">
 <Carousel class="my-5" >
 </Carousel> 
    <div class="row mb-5">

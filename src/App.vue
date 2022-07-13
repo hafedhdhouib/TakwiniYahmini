@@ -19,7 +19,7 @@ async function show(){
 <template>
 <Navbar/>
 
-<router-view/>
+<router-view class="vh-100"/>
   <!--<router-view v-slot="{ Component }">
     <transition name="slide" mode="out-in">
       <component :is="Component"></component>
