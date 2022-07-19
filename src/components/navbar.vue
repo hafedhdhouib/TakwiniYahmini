@@ -16,7 +16,7 @@
             <router-link class="nav-link fs-5" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
           </li>
           <li class="nav-item">
-            <router-link  class="nav-link fs-5" :class="$route.path == '/list' ? 'active' : ' ' " to="/list">مراكز التكوين المهني </router-link>
+            <router-link  class="nav-link fs-5" :class="$route.path == '/guide' ? 'active' : ' ' " to="/guide">مراكز التكوين المهني </router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link  fs-5" to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>

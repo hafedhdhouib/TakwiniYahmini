@@ -40,8 +40,8 @@ const router = createRouter({
     },
     ,
     {
-      path: '/List',
-      name: 'List',
+      path: '/guide',
+      name: 'guide',
       component: () => import('../views/List.vue')
     },
     ,
@@ -66,6 +66,16 @@ const router = createRouter({
       path: '/admin/add-guide',
       name: 'add guide',
       component: () => import('../views/admin/add-guide.vue')
+    },
+    {
+      path: '/admin/edit-guide/:id',
+      name: 'edit guide',
+      component: () => import('../views/admin/edit-guide.vue')
+    },
+    {
+      path: '/admin/login',
+      name: 'login',
+      component: () => import('../views/admin/login.vue')
     },
   ]
 })

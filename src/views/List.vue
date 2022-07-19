@@ -1,9 +1,9 @@
 <template>
   <div class="container my-5">
     <div class="row p-5">
-        <div class="col-lg-6 col-sm-6">
+        <a :href="resultat.pdf"  target="_blank" class="col-lg-6 col-sm-6" v-for="resultat in resultat" v-bind:key="resultat">
         <div class="portfolio-item">
-               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
+               <img :src="resultat.thumbnail" class="img-thumbnail" alt="">
                <div class="portfolio-overlay">
                   <div>
                      <h6 class="s">قائمة مؤسسات التكوين المهني العمومية </h6>
@@ -11,50 +11,31 @@
                </div>
          </div>
 
-        </div>
-<div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6 class="s">قائمة مؤسسات التكوين المهني الخاصة</h6>
-                  </div>
-               </div>
-         </div>
-
-        </div>
-        <div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6 class="s">
-الاختصاصات المتوفرة بمراكز التكوين المهني بولاية
-صفاقس دورة سبتمبر 2022</h6>
-                  </div>
-               </div>
-         </div>
-
-        </div>
-        <div class="col-lg-6 col-sm-6">
-        <div class="portfolio-item">
-               <img src="../assets/M-654-grey.jpg" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h6 class="s">
-قائمة مؤسسات خاصة منظرة في صفاقس</h6>
-                  </div>
-               </div>
-         </div>
-
-        </div>
+        </a>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import db from "../firebase/init";
+import firebase from "firebase/app";
 
+export default {
+  async beforeMount()  {
+       const res = await db.collection("guides").where("visible", "==", true).get();
+        if (res.empty) {
+            console.log("No matching documents.");
+            return;
+        }
+        res.forEach(doc => {
+            return this.resultat.push(doc.data());
+        });
+    },
+        data() {
+        return {
+            resultat: []
+        };
+    },
 }
 </script>
 
