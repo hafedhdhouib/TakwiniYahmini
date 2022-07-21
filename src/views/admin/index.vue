@@ -79,6 +79,41 @@
           </tbody>
         </table>
       </div>
+            <h2>Guides</h2> 
+      <router-link class="btn btn-primary" tag="button" to="/admin/add-actualite/">add
+
+ </router-link>
+      <div class="table-responsive">
+        <table class=" table-bordered table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">title</th>
+              <th scope="col">lien</th>
+              <th scope="col">visible</th>
+              <th scope="col">button</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(res,idx) in liens" v-bind:key="idx">
+              <td>{{idx}}</td>
+              <td><figure class="figure">
+  <img :src="res.thumbnail" class="figure-img img-fluid rounded" width="250" height="250" alt="...">
+</figure></td>
+              <td>{{res.titre}}</td>
+              <td>{{res.lien}}</td>
+              <td>{{res.visible}}</td>
+              <td class="m-2">    
+           <router-link class="btn btn-primary" tag="button" :to="{ name: 'edit lien', params: { id: res.id }}">edit</router-link>
+
+<button type="button" class="btn btn-danger" @click.prevent="delate_lien(res.id||'0')">delate</button>
+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </main>
   </div>
 </div></div>
@@ -92,7 +127,8 @@ export default {
 data() {
     return {
         actualites:[],
-        guides:[]
+        guides:[],
+        liens:[]
     }
 },
 methods: {
@@ -106,12 +142,18 @@ methods: {
         await db.collection("guides").doc(id).delete().then(()=>{
               this.$router.go()
         });
+  },
+      async delate_lien(id){
+        await db.collection("liens").doc(id).delete().then(()=>{
+              this.$router.go()
+        });
 
   }
 },
     async beforeMount()  {
        const actualite = await db.collection("actualites").get();
        const guide = await db.collection("guides").get();
+        const lien = await db.collection("liens").get();
         if (actualite.empty) {
             console.log("No matching documents.");
             return;
@@ -135,6 +177,18 @@ methods: {
               titre:doc.data().titre,
               pdf:doc.data().pdf,
               thumbnail:doc.data().thumbnail,
+              visible:doc.data().visible
+            });
+        });
+               if (lien.empty) {
+            console.log("No matching documents.");
+            return;
+        }
+        lien.forEach(doc => {
+            return this.liens.push({
+              id:doc.id,
+              titre:doc.data().titre,
+              lien:doc.data().lien,
               visible:doc.data().visible
             });
         });

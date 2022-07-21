@@ -86,6 +86,9 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/init";
+import "bootstrap/dist/js/bootstrap.min.js";
+import { Toast } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+
 export default {
   data() {
     return {
@@ -117,7 +120,7 @@ num_tel:this.num_tel,
 nom:this.nom
     }).then(()=>{
 var toastLiveExample = document.getElementById('liveToast')
-    var toast = new bootstrap.Toast(toastLiveExample)
+    var toast = new Toast(toastLiveExample)
     toast.show()
     })
 }

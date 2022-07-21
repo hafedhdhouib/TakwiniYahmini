@@ -1,41 +1,54 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-    <div class="container-fluid">
-        <div class="navbar-brand ">
-                <img class="logo" src="../assets/logo/Logo-Takwini-Yahmni.png" alt="Logo" width="100" height="100">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary" v-bind:class=" { 'navbarOpen': show }">
+               <div class="navbar-brand ">
+           <img class="logo" src="../assets/logo/Logo-Takwini-Yahmni.png" alt="Logo" width="70" height="70">
         </div>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="تبديل التنقل">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mb-2 mb-md-0">
-          <li class="nav-item">
-            <router-link class="nav-link fs-5" :class="$route.path == '/' ? 'active' : ' ' " aria-current="page" to="/">الرئيسية</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link fs-5" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link  class="nav-link fs-5" :class="$route.path == '/guide' ? 'active' : ' ' " to="/guide">مراكز التكوين المهني </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link  fs-5" to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link  fs-5" :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
-          </li>
-                    <li class="nav-item">
-            <router-link class="nav-link  fs-5" :class="$route.path == '/video' ? 'active' : ' ' " to='/video' >فيديو </router-link>
-          </li>
-        </ul>
-              </div>
-    </div>
-  </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" @click.stop="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" v-bind:class="{ 'show': show }">
+    <ul class="navbar-nav mb-2 mb-md-0">
+      <li class="nav-item">
+        <router-link class="nav-link fs-5" :class="$route.path == '/' ? 'active' : ' ' " aria-current="page" to="/">الرئيسية</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link fs-5" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link  class="nav-link fs-5" :class="$route.path == '/guide' ? 'active' : ' ' " to="/guide">مراكز التكوين المهني </router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link  fs-5" to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link  fs-5" :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
+      </li>
+                <li class="nav-item">
+        <router-link class="nav-link  fs-5" :class="$route.path == '/video' ? 'active' : ' ' " to='/video' >فيديو </router-link>
+      </li>
+    </ul>
+           <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            -->
+        </div>
+    </nav>
 
 </template>
 
 <script>
-
+export default{
+  data() {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    toggleNavbar() {
+      this.show = !this.show
+    }
+  }}
 </script>
 
 <style  scoped>
@@ -43,7 +56,7 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-.navbar-brand {
+.navbar-brandd {
   flex: 0 1 auto;
   display: block;
   width: 100px;

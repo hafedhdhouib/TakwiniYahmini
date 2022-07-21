@@ -17,7 +17,7 @@
   </div>
 </div>
 </div>
-    <p class="m-3 align-centre">يمكنكم ملء هذه الاستمارة او الاشعار عبر تطبيقنا على app store</p>
+    <p class="m-3 align-centre d-none">يمكنكم ملء هذه الاستمارة او الاشعار عبر تطبيقنا على app store</p>
     <form @submit.prevent="add" class="form p-5 my-3">
       <div class="form-check col">
         <label for="exampleFormControlInput1" class="form-label fs-5">الإسم و اللقب</label>
@@ -76,7 +76,8 @@
 
 <script>
 import emailjs from '@emailjs/browser';
-
+import "bootstrap/dist/js/bootstrap.min.js";
+import { Toast } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 export default {
 data() {
   return {
@@ -374,10 +375,10 @@ num_tel: this.num_tel,
 nom: this.nom,
 adresse: this.adresse,
 info: this.info,
-reply_to: "hafedhdouib@gmail.com",
+reply_to: "hafedhdhouib@gmail.com",
 },'tF8qINzXr-AhDi7we').then(()=>{
 var toastLiveExample = document.getElementById('liveToast')
-    var toast = new bootstrap.Toast(toastLiveExample)
+    var toast = new Toast(toastLiveExample)
     toast.show()
     })
       }

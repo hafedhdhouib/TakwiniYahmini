@@ -1,7 +1,7 @@
 <template>
   <div class="container m-5 p-5">
-<div class="m-2">
-<iframe class="center"
+<div class="m-2" style="text-align:center;">
+<iframe class=""
       width="727"
       height="409"
       src="https://www.youtube.com/embed/nbFbG3aTNOE"
@@ -18,5 +18,7 @@ export default {};
 </script>
 
 <style>
-
+.center{
+  margin: auto;
+}
 </style>

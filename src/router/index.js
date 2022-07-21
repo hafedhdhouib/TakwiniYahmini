@@ -76,7 +76,17 @@ const router = createRouter({
       path: '/admin/login',
       name: 'login',
       component: () => import('../views/admin/login.vue')
+    }, {
+      path: '/admin/add-lien',
+      name: 'add lien',
+      component: () => import('../views/admin/add-lien.vue')
     },
+    {
+      path: '/admin/edit-lien/:id',
+      name: 'edit lien',
+      component: () => import('../views/admin/edit-lien.vue')
+    },
+    
   ]
 })
 
