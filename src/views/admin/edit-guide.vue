@@ -39,7 +39,7 @@
             />
           </div>
           <div class="mb-3">
-            <input type="file" @change="onFileChange" accept="image/*" />
+            <input type="file" @change="onFileChange" accept="application/pdf" />
             <div class="progress">
               <div
                 class="progress-bar progress-bar-striped progress-bar-animated pass"
@@ -73,6 +73,7 @@ export default {
       pdf: "",
       resultat: [],
       file: null,
+      progress:0
     };
   },
   methods: {
@@ -101,9 +102,9 @@ export default {
               .doc(this.$route.params.id)
               .set({
                 titre: this.resultat.titre,
-                pdf: this.resultat.pdf,
+                pdf: downloadURL,
                 visible: this.resultat.visible,
-                thumbnail: downloadURL,
+                thumbnail: this.resultat.thumbnail,
               })
               .then(() => {
                 this.$router.push("/admin");

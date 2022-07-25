@@ -1,18 +1,26 @@
 <template>
-<div class="portfolio-item">
-               <img :src="photo" class="img-thumbnail" alt="">
-               <div class="portfolio-overlay">
-                  <div>
-                     <h3>{{title}}</h3>
-                     <h6 class="s">{{description}}</h6>
-                  </div>
-               </div>
-         </div>
-</template>
+    <div class="">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{title}}</h3>
+          <div class="mb-1 text-muted">{{date}}</div>
+          <p class="card-text mb-auto">{{resume}}</p>
+          <router-link :to="{ name: 'article', params: { id: id }}" class="stretched-link">أكمل القراءة</router-link>
+        </div>
+        <div class="col-auto m-auto d-block">
+<img :src="photo" alt="" width="300" height="250">
+        </div>
+      </div>
+    </div>
+    </template>
 
 <script>
 export default {
  props: {
+  id:{
+    type:String,
+    required:true
+  },
     title: {
       type: String,
       required: true
@@ -21,6 +29,10 @@ export default {
       type: String,
       required: true
     },
+    resume:{
+      type:String,
+      required:true
+    },
     photo: {
       type: String,
       required: true
@@ -28,24 +40,18 @@ export default {
   }
 }
 </script>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
 <style scoped>
-.portfolio-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    color: white;
-}
-@media (max-width: 720px) {  
-  .s {font-size:10px} /*1rem = 16px*/
-}
-.portfolio-item{
-    overflow: hidden;
-    position: relative;
-}
-
 </style>

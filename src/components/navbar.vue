@@ -1,62 +1,127 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary" v-bind:class=" { 'navbarOpen': show }">
-               <div class="navbar-brand ">
-           <img class="logo" src="../assets/logo/Logo-Takwini-Yahmni.png" alt="Logo" width="70" height="70">
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" @click.stop="toggleNavbar()">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" v-bind:class="{ 'show': show }">
-    <ul class="navbar-nav mb-2 mb-md-0">
-      <li class="nav-item">
-        <router-link class="nav-link fs-5" :class="$route.path == '/' ? 'active' : ' ' " aria-current="page" to="/">الرئيسية</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link fs-5" :class="$route.path == '/about' ? 'active' : ' ' " to="/about">من نحن؟</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link  class="nav-link fs-5" :class="$route.path == '/guide' ? 'active' : ' ' " to="/guide">مراكز التكوين المهني </router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link  fs-5" to="/inscription" :class="$route.path == '/inscription' ? 'active' : ' ' ">تسجيل الدخول للتوجيه المهني </router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link  fs-5" :class="$route.path == '/ich3ar' ? 'active' : ' ' " to='/ich3ar' >الإشعار </router-link>
-      </li>
-                <li class="nav-item">
-        <router-link class="nav-link  fs-5" :class="$route.path == '/video' ? 'active' : ' ' " to='/video' >فيديو </router-link>
-      </li>
-    </ul>
-           <!-- <form class="form-inline my-2 my-lg-0">
+  <nav
+    class="navbar navbar-expand-md navbar-dark fixed-top bg-primary"
+    v-bind:class="{ navbarOpen: show }"
+  >
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      @click.stop="toggleNavbar()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-brand">
+      <router-link to="/"
+        ><img
+          class="logo"
+          src="../assets/logo/Logo-Takwini-Yahmni.png"
+          alt="Logo"
+width="100"
+height="100"
+        />
+      </router-link>
+    </div>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      v-bind:class="{ show: show }"
+    >
+      <ul class="navbar-nav mb-2 mb-md-0">
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/' ? 'active' : ' '"
+            aria-current="page"
+            to="/"
+            >الرئيسية</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/about' ? 'active' : ' '"
+            to="/about"
+            >من نحن؟</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/guide' ? 'active' : ' '"
+            to="/guide"
+            >مراكز التكوين المهني
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            to="/inscription"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/inscription' ? 'active' : ' '"
+            >تسجيل الدخول للتوجيه المهني
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/ich3ar' ? 'active' : ' '"
+            to="/ich3ar"
+            >الإشعار
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link
+            class="nav-link fs-5"
+            @click.stop="toggleNavbar()"
+            :class="$route.path == '/video' ? 'active' : ' '"
+            to="/video"
+            >فيديو
+          </router-link>
+        </li>
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             -->
-        </div>
-    </nav>
-
+    </div>
+  </nav>
 </template>
 
 <script>
-export default{
+export default {
   data() {
     return {
-      show: false
-    }
+      show: false,
+    };
   },
   methods: {
     toggleNavbar() {
-      this.show = !this.show
-    }
-  }}
+      this.show = !this.show;
+    },
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+  },
+};
 </script>
 
 <style  scoped>
-
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-.navbar-brandd {
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .navbar-brand {
   flex: 0 1 auto;
   display: block;
   width: 100px;
@@ -68,24 +133,54 @@ export default{
   padding: 0 !important;
   transform: translateX(-50%);
   text-align: center;
-
 }
-.navbar-nav{
+.navbar-nav {
   margin-right: 120px;
 }
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
+  }
+}
+
+@media screen 
+  and (max-device-width: 1199px) 
+and (-webkit-min-device-pixel-ratio: 1) {
+  .navbar-brand {
+  flex: 0 1 auto;
+  display: block;
+  width: 100px;
+  height: 100px; 
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateX(0);
+  text-align: center;
+}
+.navbar-nav {
+  margin-right: 0px;
+}
+.navbar-nav > il{
+    padding-left:0px;
+    padding-right: 30px;
+  }
+}
+
+
+
 
 .navbar-brand img {
   max-height: 100%;
   max-width: 100%;
 }
 
-
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -112,7 +207,6 @@ body {
   height: 32rem;
 }
 
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -126,11 +220,10 @@ body {
 }
 /* rtl:begin:ignore */
 .marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -144,9 +237,8 @@ body {
   font-weight: 300;
   line-height: 1;
   /* rtl:remove */
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
 }
-
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5">
-<div class="position-fixed top-5 end-5 p-3" style="z-index: 11">
+<div class="position-fixed top-5 end-5 p-3 " style="z-index: 11">
 <div id='liveToast' class="toast align-items-center text-primary  border-0" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="d-flex">
     <div class="toast-body">
@@ -10,14 +10,14 @@
   </div>
 </div>
 </div>
-
-    <form class="container p-5" v-on:submit.prevent="add">
-<div class="text-center fs-1  rounded-pill">
+<br><br>
+    <form class="container my-5 p-5 round" v-on:submit.prevent="add">
+<div class="text-center my-5 fs-1  rounded-pill">
   <p class="m-3 ">تسجيل الدخول للتوجيه المهني</p>
   </div>
 
     <div class="row">
-      <div class="col-5">
+      <div class="col">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="fs-3 form-label">الاسم و اللقب
           </label>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-5">
+      <div class="col">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="fs-3 form-label">رقم الهاتف
           </label>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-5">
+      <div class="col">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="fs-3 form-label">العنوان
           </label>
@@ -129,7 +129,7 @@ var toastLiveExample = document.getElementById('liveToast')
 <style scoped>
 
 form{
-  
+  border-radius: 50px;
   background-color: #25389C;
 }
 .fs-3 {

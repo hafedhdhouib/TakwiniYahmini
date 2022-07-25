@@ -45,7 +45,7 @@
         </table>
       </div>
       <h2>Guides</h2> 
-      <router-link class="btn btn-primary" tag="button" to="/admin/add-actualite/">add
+      <router-link class="btn btn-primary" tag="button" to="/admin/add-guide/">add
 
  </router-link>
       <div class="table-responsive">
@@ -79,8 +79,8 @@
           </tbody>
         </table>
       </div>
-            <h2>Guides</h2> 
-      <router-link class="btn btn-primary" tag="button" to="/admin/add-actualite/">add
+            <h2>Liens</h2> 
+      <router-link class="btn btn-primary" tag="button" to="/admin/add-lien/">add
 
  </router-link>
       <div class="table-responsive">

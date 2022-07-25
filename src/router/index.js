@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+ scrollBehavior(to,from, savedPosition){return { top: 0 }},
   routes: [
     {
       path: '/',
@@ -85,6 +86,11 @@ const router = createRouter({
       path: '/admin/edit-lien/:id',
       name: 'edit lien',
       component: () => import('../views/admin/edit-lien.vue')
+    },
+    {
+      path: '/article/:id',
+      name: 'article',
+      component: () => import('../views/article.vue')
     },
     
   ]

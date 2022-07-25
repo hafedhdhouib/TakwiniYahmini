@@ -18,8 +18,8 @@
 </div>
 </div>
     <p class="m-3 align-centre d-none">يمكنكم ملء هذه الاستمارة او الاشعار عبر تطبيقنا على app store</p>
-    <form @submit.prevent="add" class="form p-5 my-3">
-      <div class="form-check col">
+    <form @submit.prevent="add" class="form p-5 my-5">
+      <div class="form-check col mt-5">
         <label for="exampleFormControlInput1" class="form-label fs-5">الإسم و اللقب</label>
         <input v-model="nom" type="text" class="form-control" id="exampleFormControlInput1" placeholder="الإسم و اللقب">
       </div>
@@ -375,7 +375,7 @@ num_tel: this.num_tel,
 nom: this.nom,
 adresse: this.adresse,
 info: this.info,
-reply_to: "hafedhdhouib@gmail.com",
+reply_to: "chakrounhoussem34@gmail.com",
 },'tF8qINzXr-AhDi7we').then(()=>{
 var toastLiveExample = document.getElementById('liveToast')
     var toast = new Toast(toastLiveExample)

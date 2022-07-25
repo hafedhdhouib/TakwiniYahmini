@@ -3,7 +3,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue';
 import Navbar from './components/navbar.vue';
-import FooterCOM from './components/footerCOM.vue';
+import footerCOM from './components/footerCOM.vue';
 const items = ref(['1','2','3','4','4'])
 /*
 async function show(){
@@ -26,7 +26,7 @@ async function show(){
     </transition>
   </router-view>
 -->
-<FooterCOM></FooterCOM>
+<footerCOM></footerCOM>
 </template>
 
 <style>

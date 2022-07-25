@@ -13,8 +13,14 @@ export default{
             return;
         }
         act.forEach(doc => {
-            return this.actualite.push(doc.data());
-        });
+            return this.actualite.push({id:doc.id,
+              titre:doc.data().titre,
+              photo:doc.data().photo,
+              description:doc.data().description,
+              visible:doc.data().visible,
+              resume:doc.data().resume})
+              
+});
 
 
 
@@ -34,29 +40,10 @@ export default{
   <div class="container ">
 <Carousel class="my-5" >
 </Carousel> 
-   <div class="row mb-5">
-      <div class="col-lg-8 col-sm-8">
-          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-<div class="carousel-item" v-for="(banner,idx) in actualite" v-bind:key="idx" :class="{ active: idx==0 }" data-bs-interval="1000" >
-      <img :src="banner.photo" alt="" class="img-fluid">
-            <div class="carousel-caption  d-md-block">
-        <h5>{{banner.titre}}</h5>
-        <p style="font-size: 1.5vw;">{{banner.description}}</p>
-      </div>
-
-</div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">السابق</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">التالي</span>
-    </button>
-  </div>
-</div>
+   <div class="row my-5">
+   <div class="col-xs-12 col-sm-6 col" v-for="actualite in actualite" v-bind:key="actualite">
+          <actualite :id="actualite.id" :description="actualite.description" :photo="actualite.photo" :resume="actualite.resume" :title="actualite.titre"></actualite>
+   </div>
     </div>
     <scroling ></scroling>
   </div>
