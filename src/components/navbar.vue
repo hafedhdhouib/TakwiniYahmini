@@ -37,7 +37,11 @@ height="100"
             :class="$route.path == '/' ? 'active' : ' '"
             aria-current="page"
             to="/"
-            >الرئيسية</router-link
+            >
+            <i class="bi bi-house"></i>
+            الرئيسية
+            
+            </router-link
           >
         </li>
         <li class="nav-item">
@@ -84,6 +88,9 @@ height="100"
             to="/video"
             >فيديو
           </router-link>
+        </li>
+        <li class="nav-item">
+<i class="bi bi-search nav-link fs-5"></i>
         </li>
       </ul>
       <!-- <form class="form-inline my-2 my-lg-0">
