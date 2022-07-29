@@ -23,7 +23,6 @@
     <div class="progress">
   <div class="progress-bar progress-bar-striped progress-bar-animated pass" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" :style="{width: progress +'%'}" ></div>
 </div>
-
 </div>
 <div class="mb-3">
     <button class="btn btn-primary" type="submit">Add</button>
@@ -120,6 +119,11 @@ add () {
 }
 </script>
 
-<style>
+<style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Readex+Pro:wght@600&display=swap');
+*{
 
+font-family: 'Lato';
+
+}
 </style>

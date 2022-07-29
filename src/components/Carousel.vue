@@ -1,5 +1,6 @@
 <template>
-     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+<div class="d-flex justify-content-center">
+     <div id="myCarousel" class="carousel slide img-fluid" data-bs-ride="carousel">
     <div class="carousel-inner">
 <div class="carousel-item" v-for="(banner,idx) in resultat" v-bind:key="idx" :class="{ active: idx==0 }">
       <img :src="banner.link" alt="" class="img-fluid">
@@ -13,7 +14,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">التالي</span>
     </button>
-  </div>
+  </div></div>
 </template>
 
 <script>
@@ -37,6 +38,15 @@ export default{
     },}
 </script>
 
-<style>
-
+<style scoped>
+@media screen {
+  #myCarousel {
+    max-width: 60%;
+  }
+}
+@media (max-width: 720px) {
+  #myCarousel {
+    max-width: 100%;
+  }
+}
 </style>

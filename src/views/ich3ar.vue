@@ -67,6 +67,12 @@
         <label for="exampleFormControlInput1" class="form-label fs-5"> معلومات تكميلية حول وضعية التهديد</label>
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="info"></textarea>
 </div>
+<div class="mb-3">
+    <input class="Lato" type="file" @change="onFileChange" required accept="image/*"/>
+    <div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated pass" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" :style="{width: progress +'%'}" ></div>
+</div>
+</div>
       </div>
               <button class="btn btn-warning" type="submit">الإرسال</button>
 
@@ -78,9 +84,15 @@
 import emailjs from '@emailjs/browser';
 import "bootstrap/dist/js/bootstrap.min.js";
 import { Toast } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import db from "@/firebase/init";
+import firebase from "firebase/app";
+import "firebase/storage";
+
 export default {
 data() {
   return {
+        file:null,    progress:0,
+
     mandoubiya: [
         {
             "region": "تونس",
@@ -344,13 +356,18 @@ num_tel:'',
 nom:'',
 adresse:'',
 region:null,
-info:''
-
+info:'',
+downloadURL:null
   
   }
 },
 methods: {
-  add(){
+      onFileChange(e) {
+      return this.file = e.target.files[0] || e.dataTransfer.files[0];
+
+    },
+    async save(){
+        
    let menace;
    let etat; 
     if (this.Sujet_menace=="اخر"){
@@ -367,7 +384,7 @@ methods: {
     }
     this.mandoubiya.forEach(mandoubiya=>{
       if(mandoubiya.region === this.region){
-       emailjs.send("service_mwox9uq","template_xhikczb",{
+      emailjs.send("service_mwox9uq","template_xhikczb",{
 region:this.region,
 etat: etat,
 Sujet_menace: menace,
@@ -375,7 +392,8 @@ num_tel: this.num_tel,
 nom: this.nom,
 adresse: this.adresse,
 info: this.info,
-reply_to: "chakrounhoussem34@gmail.com",
+url:this.downloadURL,
+reply_to: "hafedh20@gmail.com",
 },'tF8qINzXr-AhDi7we').then(()=>{
 var toastLiveExample = document.getElementById('liveToast')
     var toast = new Toast(toastLiveExample)
@@ -384,12 +402,36 @@ var toastLiveExample = document.getElementById('liveToast')
       }
 
 })
+    },
+  async add(){
+              const storageRef = await firebase.storage().ref();
+          console.log(storageRef);
+
+      const docRef = await storageRef.child(this.file.name);
+     docRef.put(this.file).on(
+        "state_changed",
+        (snapshot) => {
+        this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        },
+        (err) => {
+          console.log(err);
+        })
+           this.downloadURL = await docRef.getDownloadURL();
+            await save();
 }
 },
 }
 </script>
 
 <style scoped>
+
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Readex+Pro:wght@600&display=swap');
+*{
+
+font-family: 'Lato';
+
+}
+
 .form-label{
   background-color: #FCCE02;
   padding: 7px;

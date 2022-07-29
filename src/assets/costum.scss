@@ -1,7 +1,14 @@
 $primary :#25389C;
 $warning: #FCCE02;
-$font-family-sans-serif:'Lato', sans-serif;
+$font-family-sans-serif:'flatsmedium', sans-serif;
+@font-face {
+    font-family: 'flatsmedium';
+    src: url('./flats-webfont.woff2') format('woff2'),
+         url('./flats-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
+}
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Readex+Pro:wght@600&display=swap');
 

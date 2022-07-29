@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-5 p-5">
+  <div class="container my-5 py-5">
     <div class="row my-5">
       <div class="col"><iframe 
       src="https://www.youtube.com/embed/nbFbG3aTNOE"

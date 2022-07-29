@@ -4,7 +4,7 @@
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">{{title}}</h3>
           <div class="mb-1 text-muted">{{date}}</div>
-          <p class="card-text mb-auto">{{resume}}</p>
+          <p class="card-text mb-auto">{{description.slice(0, 100)}}</p>
           <router-link :to="{ name: 'article', params: { id: id }}" class="stretched-link">أكمل القراءة</router-link>
         </div>
         <div class="col-auto m-auto d-block">

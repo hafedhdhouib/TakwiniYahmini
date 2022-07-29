@@ -16,7 +16,7 @@
     <div class="navbar-brand">
       <router-link to="/"
         ><img
-          class="logo"
+          class="logo p-2"
           src="../assets/logo/Logo-Takwini-Yahmni.png"
           alt="Logo"
 width="100"
@@ -121,9 +121,8 @@ export default {
 </script>
 
 <style  scoped>
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+
+
 @media screen 
   and (min-device-width: 1200px) 
   and (max-device-width: 1600px) 

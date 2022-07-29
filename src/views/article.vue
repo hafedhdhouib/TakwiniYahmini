@@ -8,7 +8,7 @@
 </div>
         <p class="h5 mt-2">{{article.description}}</p>
         <hr>
-    </article>
+<!--<div class="img-fluid" v-html="test"></div> -->   </article>
   </div></div>
 </template>
 
@@ -18,7 +18,8 @@ import db from "@/firebase/init";
 export default {
     data() {
         return {
-            article:{}
+            article:{},
+            test:'<iframe width="640" height="360" src="https://www.youtube.com/embed/0fBYuK0TBf4" title="Bolice 4.0 - Ep 14 | part 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         }
     },
   async beforeCreate() {
@@ -38,4 +39,7 @@ export default {
 
 <style scoped>
 
+.aa{
+width:640px; 
+height:500px}
 </style>
