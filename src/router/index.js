@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import firebase from 'firebase'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,39 +54,60 @@ const router = createRouter({
     }, {
       path: '/admin',
       name: 'admin',
-      component: () => import('../views/admin/index.vue')
+      component: () => import('../views/admin/index.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },{
       path: '/admin/add-actualite/',
       name: 'add actualite',
-      component: () => import('../views/admin/add-actualite.vue')
+      component: () => import('../views/admin/add-actualite.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },{
       path: '/admin/edit-actualite/:id',
       name: 'edit actualite',
-      component: () => import('../views/admin/edit-actualite.vue')
+      component: () => import('../views/admin/edit-actualite.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },
     {
       path: '/admin/add-guide',
       name: 'add guide',
-      component: () => import('../views/admin/add-guide.vue')
+      component: () => import('../views/admin/add-guide.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },
     {
       path: '/admin/edit-guide/:id',
       name: 'edit guide',
-      component: () => import('../views/admin/edit-guide.vue')
+      component: () => import('../views/admin/edit-guide.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },
     {
-      path: '/admin/login',
+      path: '/login',
       name: 'login',
       component: () => import('../views/admin/login.vue')
     }, {
       path: '/admin/add-lien',
       name: 'add lien',
-      component: () => import('../views/admin/add-lien.vue')
+      component: () => import('../views/admin/add-lien.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },
     {
       path: '/admin/edit-lien/:id',
       name: 'edit lien',
-      component: () => import('../views/admin/edit-lien.vue')
+      component: () => import('../views/admin/edit-lien.vue'),
+      meta:{
+        requiresAuth:true
+      }
     },
     {
       path: '/article/:id',
@@ -95,5 +117,23 @@ const router = createRouter({
     
   ]
 })
+router.beforeEach(async (to, from, next) => {
+  if(to.matched.some(rec => rec.meta.requiresAuth)){
+    
+    let user = await firebase.auth().currentUser
+    console.log(user);
+    if (user) {
+          next()
+    } else {
+ 
+      next({
+        name: 'login'
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 
 export default router

@@ -40,7 +40,7 @@
       </div>
       <div class="form-check col">
         <label for="exampleFormControlInput1" class="form-label fs-5">موضوع التهديد <small class="red">*</small></label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" v-model="Sujet_menace" required>
+        <select class="form-select" multiple  aria-label=" example multiple select " v-model="Sujet_menace" required>
           <option v-for="Sujet_menaces in Sujet_menaces" v-bind:key="Sujet_menaces" :value="Sujet_menaces">{{Sujet_menaces}} </option>
         </select>
                 <div class="my-3">
@@ -347,6 +347,8 @@ data() {
 ,'محاولة انتحار'
 ,'ولادة خارج اطار الزواج'
 ,'صعوبات نفسية'
+,'انقطاع مبكر عن الدراسة',
+'سلوكيات محفوفة بالمخاطر'
 ,'اخر'],
 autre:null,
 etat:null,
@@ -366,7 +368,7 @@ methods: {
       return this.file = e.target.files[0] || e.dataTransfer.files[0];
 
     },
-    async save(){
+    save(){
         
    let menace;
    let etat; 
@@ -405,7 +407,7 @@ var toastLiveExample = document.getElementById('liveToast')
     },
   async add(){
               const storageRef = await firebase.storage().ref();
-          console.log(storageRef);
+          //console.log(storageRef);
 
       const docRef = await storageRef.child(this.file.name);
      docRef.put(this.file).on(
@@ -414,10 +416,10 @@ var toastLiveExample = document.getElementById('liveToast')
         this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         },
         (err) => {
-          console.log(err);
+          //console.log(err);
         })
            this.downloadURL = await docRef.getDownloadURL();
-            await save();
+            await this.save();
 }
 },
 }

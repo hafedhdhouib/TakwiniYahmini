@@ -1,15 +1,14 @@
 <template>
    <main class="form-signin">
-  <form>
-    <img class="mb-4" src="@/assets/logo/Logo-Takwini-Yahmni.png" alt="" width="72" height="57">
+  <form @submit.prevent="signin">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+      <input v-model="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label  for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input v-model="pass" type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -26,8 +25,22 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
 export default {
-
+data() {
+  return {
+    email:'',
+    pass:'',
+  }
+},
+methods: {
+  async signin(){
+    await firebase.auth().signInWithEmailAndPassword(this.email,this.pass).then((user)=>{
+          console.log(user)
+this.$router.push('/admin')
+    })
+  }
+}
 }
 </script>
 
