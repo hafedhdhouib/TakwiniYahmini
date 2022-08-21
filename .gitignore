@@ -27,5 +27,5 @@ coverage
 *.sln
 *.sw?
 dist.zip
-/src/firebase
+/src/firebase/
 
