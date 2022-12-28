@@ -1,10 +1,12 @@
 <template>
+  
     <div class="">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
+      <div class="row aa g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">{{title}}</h3>
-          <div class="mb-1 text-muted">{{date}}</div>
-          <p class="card-text mb-auto">{{description.slice(0, 100)}}</p>
+         <!--Date pub ne9sa formating day.js or moment.js-->
+          <!-- <div class="mb-1 text-muted">{{date.toDate()}}</div> -->
+         <p class="card-text mb-auto">{{description.slice(0, 100)}}</p>
           <router-link :to="{ name: 'article', params: { id: id }}" class="stretched-link">أكمل القراءة</router-link>
         </div>
         <div class="col-auto m-auto d-block">
@@ -37,21 +39,23 @@ export default {
       type: String,
       required: true
     },
+    date:{
+      type:Date,
+    }
   }
 }
 </script>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
 <style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Readex+Pro:wght@600&display=swap');
+  .text-muted{
+
+font-family: 'Lato';
+
+}
+@media (min-width:801px)  { .aa{
+    min-height: 306.375px;
+  } }
+
+
+ 
 </style>

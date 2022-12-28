@@ -1,11 +1,11 @@
 <template>
   <div dir="ltr">
     <div class="d-flex justify-content-around bd-highlight">
-      <a class="align-self-center"  href="https://www.facebook.com/MFPE.GOV.TN">
+      <a class="align-self-center"  href="#">
         <img
           class="a m-2 m-md-3 img-fluid"
           src="../assets/logo/wzara.jpg"
-          alt="وزارة التشغيل والتكوين المهني"
+          alt="وزارة التكوين المهني"
         />
       </a>
 <a class="align-self-center" href="">
@@ -17,15 +17,15 @@
       <a class="align-self-center" href="https://www.facebook.com/bdgpe"
         ><img
           class="a m-2 m-md-3 img-fluid"
-          src="../assets/logo/logo-AR-FR-DPE.png"
-          alt="مندوب حماية الطفولة - Délégué à la Protection de l'Enfance"
+          src="../assets/logo/wzaret_maraa-01.jpg"
+          alt=""
       /></a>
       <a class="align-self-center"
         href="https://www.facebook.com/protecteensemblecontreletravaildesenfants/"
       >
         <img
-          class="a m-md-3 m-3 b img-fluid"
-          src="../assets/286183114_317736030553726_8465749134828605490_n.png"
+        class="a m-2 m-md-3 img-fluid"
+          src="../assets/logo/protecte-vector.png"
           alt="Protect"
       /></a>
       <a class="align-self-center" href="https://www.facebook.com/AssociationBara2a">
@@ -76,10 +76,15 @@
                 </a>
               </div>
               <div class="p-2 bd-highlight">
+                <a href="https://www.linkedin.com/in/association-innocence-%D8%AC%D9%85%D8%B9%D9%8A%D8%A9-%D8%A8%D8%B1%D8%A7%D8%A1%D8%A9-67569a246/"
+                target="_blank">
                 <img src="../assets/3.png" alt="" />
+                </a>
               </div>
               <div class="p-2 bd-highlight">
+                <a href="mailto:associationbara2a@gmail.com">
                 <img src="../assets/4.png" alt="" />
+              </a>
               </div>
               <div class="p-2 bd-highlight">
                 <a href="https://www.instagram.com/associationinnocence/" target="_blank">
@@ -112,20 +117,17 @@ font-family: 'Lato';
 }
 @media screen {
   .a {
-    max-width: 133px;
     max-height: 133px;
   }
   .b{
-  width: 140px;
   height: 140px;
 }
 }
 @media (max-width: 720px) {
   .a {
-    max-width: 50px;
+    max-height: 45px;
   }
   .b{
-    width: 50px;
     height: 50px;
   }
   .logo {

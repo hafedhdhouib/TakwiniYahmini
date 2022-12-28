@@ -2,14 +2,15 @@ import firebase from 'firebase/app'
 import "firebase/firestore"
 import "firebase/storage"
 import "firebase/auth"
+console.log(import.meta.env);
 const firebaseConfig = {
-  apiKey: "AIzaSyDOqfpI-wZf8Ki0T07FvBVv_Te4kSrgemw",
-  authDomain: "takwini-yahmini.firebaseapp.com",
-  projectId: "takwini-yahmini",
-  storageBucket: "takwini-yahmini.appspot.com",
-  messagingSenderId: "24273854799",
-  appId: "1:24273854799:web:afc36f6004abe03649e53a",
-  measurementId: "G-6HW9ZX8HMZ"
+  apiKey: import.meta.env.VITE_AIPKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
+  measurementId: import.meta.env.VITE_MEASUREMENTID
 };
 
 // Initialize Firebase

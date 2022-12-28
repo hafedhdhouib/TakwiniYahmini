@@ -8,7 +8,7 @@
   </teleport>
   <div class="container py-5">
     <div class="py-5">
-    <article class=" m-5 blog-post">
+    <article class=" m-5 blog-post ">
         <h2 class="blog-post-title">{{article.titre}}</h2>
         <p class="blog-post-meta"><a href="#">  </a></p>
 <div class="d-flex justify-content-center">
@@ -79,7 +79,9 @@ methods: {
 </script>
 
 <style scoped>
-
+ .a{
+    min-height: 306.375px;
+  }
 .aa{
 width:640px; 
 height:500px}

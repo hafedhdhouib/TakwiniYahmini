@@ -48,9 +48,14 @@ const router = createRouter({
     },
     ,
     {
-      path: '/video',
-      name: 'video',
-      component: () => import('../views/video.vue')
+      path: '/video_Etatique',
+      name: 'video_Etatique',
+      component: () => import('../views/video_Etatique.vue')
+    },
+    {
+      path: '/video_prive',
+      name: 'video_prive',
+      component: () => import('../views/video_prive.vue')
     }, {
       path: '/admin',
       name: 'admin',
@@ -85,6 +90,21 @@ const router = createRouter({
       path: '/admin/edit-guide/:id',
       name: 'edit guide',
       component: () => import('../views/admin/edit-guide.vue'),
+      meta:{
+        requiresAuth:true
+      }
+    },
+    {
+      path: '/admin/edit-video/:id',
+      name: 'edit video',
+      component: () => import('../views/admin/edit-video.vue'),
+      meta:{
+        requiresAuth:true
+      }
+    },    {
+      path: '/admin/add-video',
+      name: 'add video',
+      component: () => import('../views/admin/add-video.vue'),
       meta:{
         requiresAuth:true
       }

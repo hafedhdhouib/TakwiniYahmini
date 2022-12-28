@@ -6,7 +6,7 @@
   <form class="row g-3" @submit.prevent="save">
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">titre</label>
-  <input type="text" class="form-control" id="exampleFormControlInput1" v-model="titre" required>
+  <input type="text" class="form-control" id="exampleFormControlInput1" maxlength="55" v-model="titre" required>
 </div>
 <div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">description</label>

@@ -1,4 +1,5 @@
 <template>
+  <div>
   <nav
     class="navbar navbar-expand-md navbar-dark fixed-top bg-primary"
     v-bind:class="{ navbarOpen: show }"
@@ -80,29 +81,63 @@ height="100"
             >الإشعار
           </router-link>
         </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link fs-5"
-            @click.stop="toggleNavbar()"
-            :class="$route.path == '/video' ? 'active' : ' '"
-            to="/video"
-            >فيديو
-          </router-link>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+            فيديو
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <router-link  
+                class="dropdown-item a"
+                @click.stop="toggleNavbar()"
+                to="/video_Etatique"
+                >مراكز التكوين العمومية 
+              </router-link></li>
+            <li><router-link class="dropdown-item a"                 @click.stop="toggleNavbar()"
+                to="/video_Prive">مراكز التكوين الخاصة</router-link></li>
+          </ul>
         </li>
         <li class="nav-item">
-<i class="bi bi-search nav-link fs-5"></i>
-        </li>
-      </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            -->
+<i class="bi bi-search nav-link fs-5"  data-bs-toggle="modal" data-bs-target="#exampleModal"></i>        
+</li>
+      </ul> 
+                 
     </div>
+    
   </nav>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
 </template>
 
 <script>
+  import 'bootstrap/dist/js/bootstrap.bundle'
 export default {
   data() {
     return {
@@ -110,6 +145,7 @@ export default {
     };
   },
   methods: {
+    
     toggleNavbar() {
       this.show = !this.show;
     },
@@ -121,6 +157,14 @@ export default {
 </script>
 
 <style  scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Readex+Pro:wght@600&display=swap');
+
+  .font{
+    font-family: 'Lato';
+  }
+  .a{
+    text-align: right
+  }
 
 
 @media screen 

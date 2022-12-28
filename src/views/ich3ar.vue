@@ -18,7 +18,7 @@
 </div>
 </div>
     <p class="m-3 align-centre d-none">يمكنكم ملء هذه الاستمارة او الاشعار عبر تطبيقنا على app store</p>
-    <form @submit.prevent="add" class="form p-5 my-5">
+    <form @submit.prevent="req" class="form p-5 my-5">
       <div class="form-check col mt-5">
         <label for="exampleFormControlInput1" class="form-label fs-5">الإسم و اللقب</label>
         <input v-model="nom" type="text" class="form-control" id="exampleFormControlInput1" placeholder="الإسم و اللقب">
@@ -73,6 +73,14 @@
   <div class="progress-bar progress-bar-striped progress-bar-animated pass" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" :style="{width: progress +'%'}" ></div>
 </div>
 </div>
+<div class="mb-3">
+<div class="form-check">
+            <input type="checkbox" class="form-check-input" v-model="checked" id="same-address" required>
+            <label class="form-check-label is-invalid fs-5" for="same-address">أسمح لجمعية براءة بالإطلاع على جميع المعطيات الشخصية المدرجة بهذا الإشعار</label>
+            <div class="invalid-feedback " v-show="show">
+        You must agree before submitting.
+      </div>
+          </div></div>
       </div>
               <button class="btn btn-warning" type="submit">الإرسال</button>
 
@@ -92,7 +100,8 @@ export default {
 data() {
   return {
         file:null,    progress:0,
-
+        checked:false,
+        show:false,
     mandoubiya: [
         {
             "region": "تونس",
@@ -400,6 +409,7 @@ reply_to: "hafedh20@gmail.com",
 var toastLiveExample = document.getElementById('liveToast')
     var toast = new Toast(toastLiveExample)
     toast.show()
+    this.$router.go();
     })
       }
 
@@ -420,6 +430,14 @@ var toastLiveExample = document.getElementById('liveToast')
         })
            this.downloadURL = await docRef.getDownloadURL();
             await this.save();
+},
+req(){
+    if(this.checked){
+        this.add()
+    }
+    else{
+this.show=!this.show
+    }
 }
 },
 }
@@ -441,6 +459,12 @@ font-family: 'Lato';
 }
 .red{
   color: red;
+}.form-check .form-check-input {
+    float: right;
+    margin-left: 0.5em;
+}
+label{
+    display: block;
 }
 </style>>
 

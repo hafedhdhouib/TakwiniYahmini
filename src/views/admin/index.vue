@@ -113,7 +113,37 @@
           </tbody>
         </table>
       </div>
+      <h2>video</h2> 
+      <router-link class="btn btn-primary" tag="button" to="/admin/add-video/">add
 
+ </router-link>
+      <div class="table-responsive">
+        <table class=" table-bordered table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">title</th>
+              <th scope="col">lien</th>
+              <th scope="col">type</th>
+              <th scope="col">button</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(res,idx) in videos" v-bind:key="idx">
+              <td>{{idx}}</td>
+              <td>{{res.titre}}</td>
+              <td><a :href="'https://www.youtube.com/watch?v='+res.lien" target="_blank">https://www.youtube.com/watch?v={{res.lien}}</a></td>
+              <td>{{res.type}}</td>
+              <td class="m-2">    
+           <router-link class="btn btn-primary" tag="button" :to="{ name: 'edit video', params: { id: res.id }}">edit</router-link>
+
+<button type="button" class="btn btn-danger" @click.prevent="delate_video(res.id||'0')">delate</button>
+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
   </div>
 </div></div>
@@ -128,7 +158,8 @@ data() {
     return {
         actualites:[],
         guides:[],
-        liens:[]
+        liens:[],
+        videos:[]
     }
 },
 methods: {
@@ -147,13 +178,26 @@ methods: {
         await db.collection("liens").doc(id).delete().then(()=>{
               this.$router.go()
         });
-
+  },
+  async delate_video(id){
+        await db.collection("videos").doc(id).delete().then(()=>{
+              this.$router.go()
+        });
   }
 },
     async beforeMount()  {
        const actualite = await db.collection("actualites").get();
        const guide = await db.collection("guides").get();
         const lien = await db.collection("liens").get();
+        const video = await db.collection("videos").get();
+        video.forEach(doc => {
+            return this.videos.push({
+              id:doc.id,
+              titre:doc.data().titre,
+              lien:doc.data().lien,
+              type:doc.data().type
+            });
+        });
         if (actualite.empty) {
             console.log("No matching documents.");
             return;
@@ -192,6 +236,10 @@ methods: {
               visible:doc.data().visible
             });
         });
+        if (actualite.empty) {
+            console.log("No matching documents.");
+            return;
+        }
     },
     }
 </script>

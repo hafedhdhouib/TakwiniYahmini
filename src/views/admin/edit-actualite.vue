@@ -7,6 +7,7 @@
           <input
             type="text"
             class="form-control"
+            maxlength="55"
             id="exampleFormControlInput1"
             v-model="resultat.titre"
             required

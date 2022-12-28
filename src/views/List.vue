@@ -7,14 +7,12 @@
          </div>
                      <div class="s text-center text-primary h3">{{resultat.titre}} </div>
            </a>
- </div>
+    </div>
   </div>
 </template>
 
 <script>
 import db from "../firebase/init";
-import firebase from "firebase/app";
-
 export default {
   async beforeMount()  {
        const res = await db.collection("guides").where("visible", "==", true).get();
